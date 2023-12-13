@@ -1,0 +1,10 @@
+#toolCard {
+    max-width: 15%;
+    height: auto;
+    border: 1px solid black;
+}
+
+#toolPic {
+    max-width: 75%;
+    height: auto;
+}
