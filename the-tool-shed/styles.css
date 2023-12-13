@@ -1,19 +1,42 @@
+body {
+    background-image: url("https://jooinn.com/images/wood-panels-background-1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-color:rgb(133, 133, 133); */
+    margin-left: 5%;
+}
+
 header {
     margin: auto;
+    margin-top: 3%;
     max-width: 50%;
     border: 5px solid black;
-    background-color: gold;
+    background-color: rgb(238, 158, 9);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+h1 {
+    font-size: 350%;
+}
+
+h2 {
+    font-size: 200%;
+}
+
+h3 {
+    font-size: 200%;
+}
+
 .toolCard {
     max-width: 20%;
     max-height: auto;
-    border: 1px solid black;
-    background-color: gold;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border: 3px solid black;
+    background-color: rgb(238, 158, 9);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,6 +48,14 @@ header {
     max-width: 75%;
     height: auto;
     border: 1px solid black;
+}
+
+.ownerName {
+    font-size: 100%;   
+}
+
+.toolName {
+    font-size: 125%;
 }
 
 #available-section {
