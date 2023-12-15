@@ -15,14 +15,14 @@
 
     <h2>Available tools</h2>
     <div id ="available-section">
-        <div class ="toolCard">
+        <div class ="toolCardAvailable">
             <h5 class ="ownerName">Owner: Tim Johnson</h5>
             <img class ="toolPic" src="https://c.shld.net/rpx/i/s/i/spin/image/spin_prod_206237601"/>
             <h4 class ="toolName">Hammer</h4>
             <button class ="borrowBtn">Borrow Tool</button>
             <button class ="deleteBtn">X</button>
         </div>
-        <div class ="toolCard">
+        <div class ="toolCardAvailable">
             <h5 class ="ownerName">Owner: Bob Howard</h5>
             <img class = "toolPic" src ="https://images-na.ssl-images-amazon.com/images/I/51Ld4R7L1uL._SL1000_.jpg"/>
             <h4 class ="toolName">Tree Trimmers</h4>
@@ -34,15 +34,15 @@
     <h2>Add a tool to the shed</h2>
     <div id ="add-section">
         <form id ="toolAdd">
-            <input 
+            <input
                 type='text'
                 id="image"
                 placeholder="Enter image URL..."/>
-            <input 
+            <input
                 type='text'
                 id="toolName"
                 placeholder='Enter tool name...'/>
-            <input 
+            <input
                 type='text'
                 id="ownerName"
                 placeholder='Enter name of tool owner...'/>
@@ -52,5 +52,13 @@
 
     <h2>Tools you are borrowing</h2>
     <div id ="borrow-section">
+        <div class ="toolCardBorrow">
+            <h5 class ="ownerName">Owner: Alfred Brown</h5>
+            <img class ="toolPic" src="https://th.bing.com/th/id/OIP.0yA1AjAL2jpPHzWR5_KSuwHaHa?rs=1&pid=ImgDetMain"/>
+            <h4 class ="toolName">Saw</h4>
+            <button class ="return-tool">Return the tool</button>
+        </div>
     </div>
+
+    <script src="main.js"></script>
 </body>

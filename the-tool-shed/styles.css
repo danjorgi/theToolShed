@@ -36,7 +36,7 @@ h3 {
     font-size: 200%;
 }
 
-.toolCard {
+.toolCardAvailable {
     max-width: 20%;
     max-height: auto;
     padding: 1%;
@@ -103,4 +103,18 @@ input {
 
 button {
     font-family:'Courier New', Courier, monospace;
+}
+
+.toolCardBorrow {
+    max-width: 20%;
+    max-height: auto;
+    padding: 1%;
+    border: 3px solid black;
+    background-color: rgb(238, 158, 9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 5px 5px 5px rgb(44, 44, 44);
 }
