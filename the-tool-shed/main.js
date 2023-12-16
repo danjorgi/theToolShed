@@ -1,8 +1,11 @@
 const availableSection = document.querySelector('#available-section');
 const form = document.querySelector('#toolAdd');
 
+const toolsCallback = ({ data: tools }) => displayTools(tools);
+const errCallback = err => console.log(err);
+
 function submitHandler(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     let imageURL = document.querySelector('#image').value;
     let toolName = document.querySelector('#toolName').value;
@@ -33,7 +36,15 @@ function createToolCardAvailable(tool) {
     <button class="deleteBtn">X</button>
     `
 
-    availableSection.appendChild(toolCard)
+    availableSection.appendChild(toolCard);
 }
+
+function displayAvailableTools(arr) {
+    availableSection.innerHTML = ``
+    for(let i = 0; i < arr.length; i++) {
+        createToolCardAvailable(arr[i])
+    }
+}
+
 
 form.addEventListener('submit', submitHandler);
