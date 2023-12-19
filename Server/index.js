@@ -1,22 +1,20 @@
 const express = require('express');
 const cors = require('cors');
-const axios = require('axios');
 
 const app = express();
 
-const tools = [];
-
 app.use(express.json());
-app.use(express.static('public'));
 app.use(cors());
 
 const {
     getTools,
     createTool,
+    deleteTool
 } = require('./controller');
 
-app.get('/api/tools', getTools)
-app.post('/api/tools', createTool)
+app.get('/api/toolsAvailable', getTools)
+app.post('/api/toolsAvailable', createTool)
+app.delete(`/api/toolsAvailable/:id`, deleteTool)
 
 
 const port = 4004

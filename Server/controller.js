@@ -1,4 +1,5 @@
-const tools = require("./db.json");
+let tools = require("./db.json");
+let globalId = 3;
 
 module.exports = {
     getTools: (req, res) => {
@@ -12,13 +13,20 @@ module.exports = {
         }
 
         const newTool = {
+            id: globalId,
             imageURL,
             toolName,
             ownerName,
         };
 
         tools.push(newTool);
+        globalId++;
 
         res.status(201).json(newTool);
+    },
+    deleteTool: (req, res) => {
+        let index = tools.findIndex(elem => elem.id === +req.params.id)
+        tools.splice(index, 1)
+        res.status(200).send(tools)
     }
-}
+};

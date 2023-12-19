@@ -6,7 +6,9 @@ const baseURL = `http://localhost:4004/api`
 const toolsCallback = ({ data: tools }) => displayAvailableTools(tools);
 const errCallback = err => console.log(err);
 
-const getAllAvailableTools = () => axios.get(`${baseURL}/tools`).then(toolsCallback).catch(errCallback);
+const getAllAvailableTools = () => axios.get(`${baseURL}/toolsAvailable`).then(toolsCallback).catch(errCallback);
+const createTool = body => axios.post(`${baseURL}/toolsAvailable`, body).then(toolsCallback).catch(errCallback);
+const deleteTool = id => axios.delete(`${baseURL}/toolsAvailable/${id}`).then(housesCallback).catch(errCallback);
 
 function submitHandler(e) {
     e.preventDefault();
@@ -41,6 +43,7 @@ function createToolCardAvailable(tool) {
     `
 
     availableSection.appendChild(toolCard);
+
 }
 
 function displayAvailableTools(arr) {
@@ -52,3 +55,5 @@ function displayAvailableTools(arr) {
 
 
 form.addEventListener('submit', submitHandler);
+
+getAllAvailableTools();
