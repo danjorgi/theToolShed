@@ -1,8 +1,12 @@
 const availableSection = document.querySelector('#available-section');
 const form = document.querySelector('#toolAdd');
 
-const toolsCallback = ({ data: tools }) => displayTools(tools);
+const baseURL = `http://localhost:4004/api`
+
+const toolsCallback = ({ data: tools }) => displayAvailableTools(tools);
 const errCallback = err => console.log(err);
+
+const getAllAvailableTools = () => axios.get(`${baseURL}/tools`).then(toolsCallback).catch(errCallback);
 
 function submitHandler(e) {
     e.preventDefault();

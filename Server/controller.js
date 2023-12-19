@@ -1,3 +1,5 @@
+const tools = require("./db.json");
+
 module.exports = {
     getTools: (req, res) => {
         res.status(200).send(tools)
