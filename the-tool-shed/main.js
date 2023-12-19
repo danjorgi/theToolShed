@@ -1,5 +1,5 @@
 const availableSection = document.querySelector('#available-section');
-const form = document.querySelector('#toolAdd');
+const form = document.querySelector('form');
 
 const baseURL = `http://localhost:4004/api`
 
@@ -8,7 +8,7 @@ const errCallback = err => console.log(err);
 
 const getAllAvailableTools = () => axios.get(`${baseURL}/toolsAvailable`).then(toolsCallback).catch(errCallback);
 const createTool = body => axios.post(`${baseURL}/toolsAvailable`, body).then(toolsCallback).catch(errCallback);
-const deleteTool = id => axios.delete(`${baseURL}/toolsAvailable/${id}`).then(housesCallback).catch(errCallback);
+const deleteTool = id => axios.delete(`${baseURL}/toolsAvailable/${id}`).then(toolsCallback).catch(errCallback);
 
 function submitHandler(e) {
     e.preventDefault();
@@ -39,7 +39,7 @@ function createToolCardAvailable(tool) {
     <img class="toolPic" src="${tool.imageURL}" alt="${tool.toolName}">
     <h4 class="toolName">${tool.toolName}</h4>
     <button class="borrowBtn">Borrow Tool</button>
-    <button class="deleteBtn">X</button>
+    <button onclick="deleteTool(${tool.id})" class="deleteBtn">X</button>
     `
 
     availableSection.appendChild(toolCard);

@@ -8,13 +8,13 @@ app.use(cors());
 
 const {
     getTools,
-    createTool,
-    deleteTool
+    deleteTool,
+    createTool
 } = require('./controller');
 
 app.get('/api/toolsAvailable', getTools)
-app.post('/api/toolsAvailable', createTool)
 app.delete(`/api/toolsAvailable/:id`, deleteTool)
+app.post('/api/toolsAvailable', createTool)
 
 
 const port = 4004
