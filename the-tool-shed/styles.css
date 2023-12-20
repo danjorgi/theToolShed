@@ -80,7 +80,7 @@ h3 {
     height: 200px;
 }
 
-#toolAdd {
+form {
     max-width: 100%;
     height: 200px;
     box-shadow: 5px 5px 5px rgb(44, 44, 44);
