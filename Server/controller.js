@@ -1,6 +1,6 @@
 let tools = require("./availableDB.json");
 let globalId = tools.length > 0 ? Math.max(...tools.map(tool => tool.id)) + 1 : 1;
-let borrowedTools = require("./borrowDB.json");
+let borrowedTools = [];
 
 module.exports = {
     getTools: (req, res) => {
@@ -42,4 +42,16 @@ module.exports = {
     getBorrowedTools: (req, res) => {
         res.status(200).send(borrowedTools);
     },
+    returnTool: (req, res) => {
+        const id = +req.params.id;
+        const borrowedToolIndex = borrowedTools.findIndex(tool => tool.id === id);
+
+        if (borrowedToolIndex !== -1) {
+            const returnedTool = borrowedTools.splice(borrowedToolIndex, 1)[0];
+            tools.push(returnedTool);
+            res.status(200).send(returnedTool);
+        } else {
+            res.status(404).json({ error: 'Borrowed tool not found' });
+        }
+    }
 };

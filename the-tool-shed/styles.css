@@ -125,3 +125,11 @@ button {
     gap: 10px;
     box-shadow: 5px 5px 5px rgb(44, 44, 44);
 }
+
+.remove-transition {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    transition: opacity 0.3s ease, height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+}

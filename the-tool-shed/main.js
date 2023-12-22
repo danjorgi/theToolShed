@@ -22,6 +22,22 @@ const createTool = body => axios.post(`${baseURL}/toolsAvailable`, body)
 });
 const borrowTool = id => axios.post(`${baseURL}/borrowTool/${id}`).then(borrowedToolsCallback).catch(errCallback);
 const deleteTool = id => axios.delete(`${baseURL}/toolsAvailable/${id}`).then(toolsCallback).catch(errCallback);
+const returnTool = async (id) => {
+    try {
+        if (isNaN(id)) {
+            console.error('Invalid tool id:', id);
+            return;
+        }
+        
+        const response = await axios.post(`${baseURL}/returnTool/${id}`);
+        const returnedTool = response.data;
+        console.log('Tool returned successfully:', returnedTool);
+        toolReturn(returnedTool);
+    } catch (err) {
+        console.error('Error returning tool:', err);
+        errCallback(err);
+    }
+};
 
 function submitHandler(e) {
     e.preventDefault();
@@ -66,12 +82,13 @@ function createToolCardBorrow(tool) {
     console.log('Creating borrow card:', tool);
     const borrowCard = document.createElement('div');
     borrowCard.classList.add('toolCardBorrow');
+    borrowCard.setAttribute('data-id', tool.id);
 
     borrowCard.innerHTML = `
     <h5 class="ownerName">Owner: ${tool.ownerName}</h5>
     <img class="toolPic" src="${tool.imageURL}" alt="${tool.toolName}">
     <h4 class="toolName">${tool.toolName}</h4>
-    <button class="return-tool">Return the tool</button>
+    <button class="return-tool" onclick="returnTool(${tool.id})">Return the tool</button>
     `
 
     borrowSection.appendChild(borrowCard);
@@ -86,7 +103,17 @@ function toolBorrow(tool) {
     }
 };
 
+function toolReturn(tool) {
+    createToolCardAvailable(tool);
+    const toolCardBorrow = document.querySelector(`.toolCardBorrow[data-id="${tool.id}"]`);
+    
+    if (toolCardBorrow) {
+        toolCardBorrow.remove();
+    }
+}
+
 document.addEventListener('click', (event) => {
+    console.log('Click event:', event);
     const target = event.target;
 
     if (target.classList.contains('borrowBtn')) {
@@ -97,6 +124,11 @@ document.addEventListener('click', (event) => {
             toolName: target.closest('.toolCardAvailable').querySelector('.toolName').textContent,
         };
         toolBorrow(toolData);
+    }
+
+    if (target.classList.contains('return-tool')) {
+        const toolId = parseInt(target.closest('.toolCardBorrow').getAttribute('data-id'));
+        returnTool(toolId);
     }
 });
 

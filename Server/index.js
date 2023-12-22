@@ -12,6 +12,7 @@ const {
     createTool,
     borrowTool,
     getBorrowedTools,
+    returnTool
 } = require('./controller');
 
 app.get('/api/toolsAvailable', getTools);
@@ -19,7 +20,7 @@ app.delete(`/api/toolsAvailable/:id`, deleteTool);
 app.post('/api/toolsAvailable', createTool);
 app.post('/api/borrowTool/:id', borrowTool);
 app.get('/api/borrowedTools', getBorrowedTools);
-
+app.post('/api/returnTool/:id', returnTool);
 
 const port = 4004
 
