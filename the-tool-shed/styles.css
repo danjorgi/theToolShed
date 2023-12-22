@@ -73,6 +73,13 @@ h3 {
     gap: 50px;
 }
 
+#borrow-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 50px;
+}
+
 #add-section {
     border: 3px solid black;
     background-color: rgb(238, 158, 9);
