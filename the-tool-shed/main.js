@@ -1,5 +1,6 @@
 const availableSection = document.querySelector('#available-section');
 const form = document.querySelector('form');
+const borrowSection = document.querySelector('#borrow-section');
 
 const baseURL = `http://localhost:4004/api`
 
@@ -44,6 +45,7 @@ function createToolCardAvailable(tool) {
     console.log('Creating tool card:', tool);
     const toolCard = document.createElement('div');
     toolCard.classList.add('toolCardAvailable');
+    toolCard.setAttribute('data-id', tool.id);
 
     toolCard.innerHTML = `
     <h5 class="ownerName">Owner: ${tool.ownerName}</h5>
@@ -57,12 +59,50 @@ function createToolCardAvailable(tool) {
 
 }
 
+function createToolCardBorrow(tool) {
+    console.log('Creating borrow card:', tool);
+    const borrowCard = document.createElement('div');
+    borrowCard.classList.add('toolCardBorrow');
+
+    borrowCard.innerHTML = `
+    <h5 class="ownerName">Owner: ${tool.ownerName}</h5>
+    <img class="toolPic" src="${tool.toolName}" alt="${tool.toolName}">
+    <h4 class="toolName">${tool.toolName}</h4>
+    <button class="return-tool">Return the tool</button>
+    `
+
+    borrowSection.appendChild(borrowCard);
+}
+
 function displayAvailableTools(arr) {
     availableSection.innerHTML = ``
     for (let i = 0; i < arr.length; i++) {
         createToolCardAvailable(arr[i])
     }
 }
+
+function borrowTool(tool) {
+    createToolCardBorrow(tool);
+    const toolCardAvailable = document.querySelector(`.toolCardAvailable[data-id="${tool.id}"]`);
+    if (toolCardAvailable) {
+        toolCardAvailable.remove();
+    }
+}
+
+document.addEventListener('click', (event) => {
+    const target = event.target;
+
+    if (target.classList.contains('borrowBtn')) {
+        const toolData = {
+            id: parseInt(target.closest('.toolCardAvailable').getAttribute('data-id')),
+            ownerName: target.closest('.toolCardAvailable').querySelector('.ownerName').textContent.replace('Owner: ', ''),
+            imageURL: target.closest('.toolCardAvailable').querySelector('.toolPic').getAttribute('src'),
+            toolName: target.closest('.toolCardAvailable').querySelector('.toolName').textContent,
+        };
+
+        borrowTool(toolData);
+    }
+})
 
 
 form.addEventListener('submit', submitHandler);
