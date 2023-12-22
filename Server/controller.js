@@ -50,8 +50,6 @@ module.exports = {
             const returnedTool = borrowedTools.splice(borrowedToolIndex, 1)[0];
             tools.push(returnedTool);
             res.status(200).send(returnedTool);
-        } else {
-            res.status(404).json({ error: 'Borrowed tool not found' });
-        }
+        } 
     }
 };

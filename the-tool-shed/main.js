@@ -24,17 +24,11 @@ const borrowTool = id => axios.post(`${baseURL}/borrowTool/${id}`).then(borrowed
 const deleteTool = id => axios.delete(`${baseURL}/toolsAvailable/${id}`).then(toolsCallback).catch(errCallback);
 const returnTool = async (id) => {
     try {
-        if (isNaN(id)) {
-            console.error('Invalid tool id:', id);
-            return;
-        }
-        
-        const response = await axios.post(`${baseURL}/returnTool/${id}`);
+        const response = await axios.post(`${baseURL}/returnTool/${id}`, {});
         const returnedTool = response.data;
         console.log('Tool returned successfully:', returnedTool);
         toolReturn(returnedTool);
     } catch (err) {
-        console.error('Error returning tool:', err);
         errCallback(err);
     }
 };
