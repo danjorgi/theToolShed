@@ -140,6 +140,14 @@ function displayBorrowedTools(arr) {
     }
 };
 
+function handleScroll(event) {
+    event.preventDefault();
+    const delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
+    this.scrollLeft -= delta * 40;
+}
+
+availableSection.addEventListener('wheel', handleScroll);
+borrowSection.addEventListener('wheel', handleScroll);
 
 form.addEventListener('submit', submitHandler);
 
