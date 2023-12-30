@@ -1,6 +1,6 @@
 body {
     background-image: url("https://jooinn.com/images/wood-panels-background-1.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     background-size: 100% 100%;
     /* background-color:rgb(133, 133, 133); */
     margin-left: 5%;
@@ -37,8 +37,9 @@ h3 {
 }
 
 .toolCardAvailable {
-    max-width: 20%;
-    max-height: auto;
+    min-width: 200px;
+    width: 200px;
+    max-height: 100%;
     padding: 1%;
     border: 3px solid black;
     background-color: rgb(238, 158, 9);
@@ -51,7 +52,7 @@ h3 {
 }
 
 .toolPic {
-    max-width: 75%;
+    max-width: 100%;
     height: auto;
     border: 1px solid black;
 }
@@ -67,17 +68,23 @@ h3 {
 }
 
 #available-section {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     gap: 50px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
 }
 
 #borrow-section {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     gap: 50px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
 }
 
 #add-section {
@@ -113,8 +120,9 @@ button {
 }
 
 .toolCardBorrow {
-    max-width: 20%;
-    max-height: auto;
+    min-width: 200px;
+    width: 200px;
+    max-height: 100%;
     padding: 1%;
     border: 3px solid black;
     background-color: rgb(238, 158, 9);
