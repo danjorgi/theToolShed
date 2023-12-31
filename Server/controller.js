@@ -30,13 +30,18 @@ module.exports = {
     },
     borrowTool: (req, res) => {
         const id = +req.params.id;
+        const borrowerName = req.body.borrowerName;
+    
         const toolIndex = tools.findIndex(tool => tool.id === id);
         if (toolIndex !== -1) {
-            const borrowedTool = tools.splice(toolIndex, 1)[0];
+            const borrowedTool = {
+                ...tools.splice(toolIndex, 1)[0],
+                borrowerName,
+            };
             borrowedTools.push(borrowedTool);
             res.status(200).send(borrowedTools);
         } else {
-            res.status(404).json({error: 'Tool not found'});
+            res.status(404).json({ error: 'Tool not found' });
         }
     },
     getBorrowedTools: (req, res) => {
