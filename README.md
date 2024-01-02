@@ -9,9 +9,6 @@ Welcome to The Tool Shed, a neighborhood tool-sharing platform! This web applica
 - [Getting Started](#getting-started)
 - [Dependencies](#dependencies)
 - [API Endpoints](#api-endpoints)
-- [Database](#database)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Files
 
