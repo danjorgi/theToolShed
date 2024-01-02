@@ -2,6 +2,8 @@
 
 Welcome to The Tool Shed, a neighborhood tool-sharing platform! This web application allows users to view, borrow, and return tools within their community. The project consists of a front-end written in HTML, CSS, and JavaScript, and a back-end server using Node.js and Express.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XMHwRBFmiF0?si=I0o0uwA-qR7Cj53p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Contents
 
 - [Files](#files)
