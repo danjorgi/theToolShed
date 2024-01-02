@@ -31,11 +31,11 @@ Welcome to The Tool Shed, a neighborhood tool-sharing platform! This web applica
 
 ## Getting Started
 1. Clone the repository.
-git clone <repository-url>
+-git clone <repository-url>
 2. Intall dependencies.
-npm install
+-npm install
 3. Run the server.
-nodemon server/index.js
+-nodemon server/index.js
 4. Open index.html in a web browser.
 
 ## Dependencies
