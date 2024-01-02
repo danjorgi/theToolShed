@@ -9,6 +9,8 @@ Welcome to The Tool Shed, a neighborhood tool-sharing platform! This web applica
 - [Getting Started](#getting-started)
 - [Dependencies](#dependencies)
 - [API Endpoints](#api-endpoints)
+- [Database](#database)
+- [Demo Video](#demo-video)
 
 ## Files
 
@@ -43,7 +45,6 @@ Welcome to The Tool Shed, a neighborhood tool-sharing platform! This web applica
 
 ## API Endpoints
 
-```markdown
 - **GET /api/toolsAvailable:** Retrieve a list of available tools.
 - **DELETE /api/toolsAvailable/:id:** Delete a tool by ID.
 - **POST /api/toolsAvailable:** Add a new tool to the available tools.
@@ -54,4 +55,5 @@ Welcome to The Tool Shed, a neighborhood tool-sharing platform! This web applica
 ## Database
 The initial database of available tools is stored in the `availableDB.json` file. The server reads from and modifies this file to manage tools.
 
-- Demo video: https://youtu.be/XMHwRBFmiF0?si=5sFTcb3GfwWV_zPp
+## Demo Video
+https://youtu.be/XMHwRBFmiF0?si=5sFTcb3GfwWV_zPp
