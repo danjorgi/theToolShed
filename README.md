@@ -56,3 +56,5 @@ Welcome to The Tool Shed, a neighborhood tool-sharing platform! This web applica
 
 ## Database
 The initial database of available tools is stored in the `availableDB.json` file. The server reads from and modifies this file to manage tools.
+
+- Demo video: https://youtu.be/XMHwRBFmiF0?si=5sFTcb3GfwWV_zPp
